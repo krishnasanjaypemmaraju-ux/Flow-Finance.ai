@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --bg:#05060E;
+  --bg2:#080A16;
+  --bg3:#0C0E1E;
+  --glass:rgba(255,255,255,0.035);
+  --glass2:rgba(255,255,255,0.065);
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --text:#F0F4FF;
+  --muted:rgba(240,244,255,0.45);
+  --faint:rgba(240,244,255,0.2);
+  --i:#7C6FF7;
+  --v:#9D6FF7;
+  --c:#22D3EE;
+  --g:#10B981;
+  --r:#F43F5E;
+  --a:#FBBF24;
+  --p:#F472B6;
+}
+
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+/* ── scrollbar ── */
+::-webkit-scrollbar{width:3px;height:3px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(124,111,247,0.25);border-radius:4px;}
+
+/* ── animated bg ── */
+.app-bg{
+  background:#05060E;
+  background-image:
+    radial-gradient(ellipse 90% 50% at 5% 0%,rgba(76,29,149,0.2) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 40% at 95% 5%,rgba(34,211,238,0.1) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 100%,rgba(124,111,247,0.12) 0%,transparent 60%);
+}
+
+/* ── glass ── */
+.g1{background:rgba(255,255,255,0.035);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.07);border-radius:20px;}
+.g2{background:rgba(255,255,255,0.06);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;}
+.card{background:rgba(12,14,30,0.8);border:1px solid rgba(255,255,255,0.07);border-radius:20px;backdrop-filter:blur(16px);}
+
+/* ── gradient text ── */
+.gt{background:linear-gradient(135deg,#7C6FF7,#22D3EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gt-g{background:linear-gradient(135deg,#10B981,#34D399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gt-r{background:linear-gradient(135deg,#F43F5E,#FB7185);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gt-a{background:linear-gradient(135deg,#FBBF24,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gt-w{background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,0.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* ── glows ── */
+.gl-i{box-shadow:0 0 40px rgba(124,111,247,0.3),0 8px 32px rgba(0,0,0,0.5);}
+.gl-g{box-shadow:0 0 40px rgba(16,185,129,0.25),0 8px 32px rgba(0,0,0,0.5);}
+.gl-r{box-shadow:0 0 40px rgba(244,63,94,0.25),0 8px 32px rgba(0,0,0,0.5);}
+.gl-c{box-shadow:0 0 40px rgba(34,211,238,0.2),0 8px 32px rgba(0,0,0,0.5);}
+.gl-a{box-shadow:0 0 40px rgba(251,191,36,0.2),0 8px 32px rgba(0,0,0,0.5);}
+
+/* ── inputs ── */
+.inp{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:12px;color:#F0F4FF;font-family:'Instrument Sans',sans-serif;transition:all 0.2s;}
+.inp:focus{outline:none;border-color:rgba(124,111,247,0.55);background:rgba(124,111,247,0.07);box-shadow:0 0 0 3px rgba(124,111,247,0.12);}
+.inp::placeholder{color:rgba(240,244,255,0.2);}
+select option{background:#0C0E1E;color:#F0F4FF;}
+
+/* ── pill ── */
+.pill{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:0.02em;}
+
+/* ── row hover ── */
+.rh{transition:background 0.12s;border-radius:12px;}
+.rh:hover{background:rgba(124,111,247,0.06);}
+
+/* ── btn ── */
+.btn{background:linear-gradient(135deg,#6366F1,#7C6FF7);color:white;font-weight:700;border:none;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+.btn:hover{box-shadow:0 0 28px rgba(99,102,241,0.55);transform:translateY(-1px);}
+.btn:active{transform:translateY(0);}
+
+/* ── skeleton ── */
+.sk{background:linear-gradient(90deg,rgba(255,255,255,0.03) 25%,rgba(255,255,255,0.07) 50%,rgba(255,255,255,0.03) 75%);background-size:600px 100%;animation:shim 1.8s linear infinite;border-radius:14px;}
+@keyframes shim{0%{background-position:-600px 0}100%{background-position:600px 0}}
+
+/* ── recharts ── */
+.recharts-default-tooltip{background:rgba(8,10,22,0.98)!important;border:1px solid rgba(124,111,247,0.3)!important;border-radius:14px!important;box-shadow:0 8px 32px rgba(0,0,0,0.6)!important;}
+
+/* ── ticker ── */
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-inner{animation:ticker 30s linear infinite;display:flex;gap:0;}
+.ticker-inner:hover{animation-play-state:paused;}
+
+/* ── pulse dot ── */
+.pdot{position:relative;display:inline-block;}
+.pdot::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:inherit;animation:pring 1.5s ease-out infinite;opacity:0.5;}
+@keyframes pring{0%{transform:scale(1);opacity:0.5}100%{transform:scale(2.2);opacity:0}}
+
+/* ── float ── */
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.float{animation:fl 4s ease-in-out infinite;}
+
+/* ── number count animation ── */
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.count-up{animation:countUp 0.5s ease forwards;}
+
+/* ── sparkline ── */
+.sparkline path{fill:none;}
+
+/* ── progress ring ── */
+.prog-ring{transform:rotate(-90deg);}
+
+/* ── gradient border ── */
+.gb{position:relative;}
+.gb::before{content:'';position:absolute;inset:-1px;border-radius:22px;background:linear-gradient(135deg,rgba(124,111,247,0.4),rgba(34,211,238,0.25),rgba(157,111,247,0.35));z-index:-1;opacity:0;transition:opacity 0.3s;}
+.gb:hover::before{opacity:1;}
+
+/* ── stat number font ── */
+.sn{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;}
+.dn{font-family:'JetBrains Mono',monospace;font-weight:600;}
+
+/* ── heatmap cell ── */
+.hm-cell{border-radius:3px;transition:transform 0.1s;cursor:pointer;}
+.hm-cell:hover{transform:scale(1.4);z-index:10;position:relative;}
+
+/* ── goal progress ── */
+.goal-bar{height:6px;border-radius:99px;background:rgba(255,255,255,0.06);overflow:hidden;}
+.goal-bar-fill{height:100%;border-radius:99px;transition:width 1s ease;}
